@@ -44,7 +44,7 @@ if ( ! function_exists( 'sandmanwp_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'sandmanwp' ),
+			'primary' => esc_html__( 'Primary', 'sandmanwp' ),
 		) );
 
 		/*
@@ -83,6 +83,11 @@ if ( ! function_exists( 'sandmanwp_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'sandmanwp_setup' );
 
+function sandmanwp_add_editor_style() {
+	add_editor_style('dist/css/editor-style.css');
+}
+add_action('admin_init', 'sandmanwp_add_editor_style');
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -94,27 +99,9 @@ function sandmanwp_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'sandmanwp_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'sandmanwp_content_width', 1140 );
 }
 add_action( 'after_setup_theme', 'sandmanwp_content_width', 0 );
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function sandmanwp_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'sandmanwp' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'sandmanwp' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'sandmanwp_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
