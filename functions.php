@@ -107,9 +107,23 @@ add_action( 'after_setup_theme', 'sandmanwp_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function sandmanwp_scripts() {
+	wp_enqueue_style('sandmanwp-bs-css', get_template_directory_uri() . '/dist/css/bootstrap.min.css' );
+
+	wp_enqueue_style('sandmanwp-fontawesome', get_template_directory_uri() . '/fonts/font-awesome/css/fontawesome.min.css' );
+
 	wp_enqueue_style( 'sandmanwp-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'sandmanwp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_register_script('popper','https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/popper.min.js' , false, '', true);
+	
+	wp_enqueue_script('popper');
+	
+	wp_enqueue_script ( 'sandmanwp-tether' , get_template_directory_uri() . '/src/js/tether.js', array(), '20170115', true );
+
+	wp_enqueue_script ( 'sandmanwp-bootstrap' , get_template_directory_uri() . '/src/js/bootstrap-min.js', array('jquery'), '20170915', true );
+	
+	wp_enqueue_script ( 'sandmanwp-bootstrap-hover' , get_template_directory_uri() . '/src/js/bootstrap-hover-min.js', array('jquery'), '20170115', true );
+
+	wp_enqueue_script ( 'sandmanwp-nav-scroll' , get_template_directory_uri() . '/src/js/nav-scroll.js', array('jquery'), '20170915', true );
 
 	wp_enqueue_script( 'sandmanwp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -138,6 +152,16 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Widgets File.
+ */
+require get_template_directory() . '/inc/widgets.php';
+
+/**
+ * Bootstrap Navwalker File.
+ */
+require get_template_directory() . '/inc/bootstrap-wp-navwalker.php';
 
 /**
  * Load Jetpack compatibility file.
