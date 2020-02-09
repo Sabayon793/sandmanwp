@@ -13,6 +13,7 @@ get_header();
 ?>
 
 	<div id="primary" class="content-area col-md 12">
+		<div id= "page-sub-header">
 		<main id="main" class="site-main">
 
 		<?php
@@ -30,6 +31,7 @@ get_header();
 		?>
 
 		</main><!-- #main -->
+	</div>
 	</div><!-- #primary -->
 
 <?php get_footer();

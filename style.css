@@ -131,6 +131,10 @@ hr {
 	margin-bottom: 1.5em;
 }
 
+.site-info {
+	text-align: center;
+}
+
 h1.site-title, p.site-title  {
 	margin: 10px 0 0 -2px;
 	padding: 0;
@@ -276,6 +280,54 @@ textarea {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+#page-sub-header {
+	position: relative;
+	padding-top: 5rem;
+	padding-bottom: 0;
+	text-align: center;
+	font-size: 1.25rem;
+	background-size: cover !important;
+  }
+  
+  body:not(.theme-preset-active) #page-sub-header h1 {
+	line-height: 1.6;
+	font-size: 4rem;
+	color: #563e7c;
+	margin: 0 0 1rem;
+	border: 0;
+	padding: 0;
+  }
+  
+  #page-sub-header p {
+	margin-bottom: 0;
+	line-height: 1.4;
+	font-size: 1.25rem;
+	font-weight: 300;
+  }
+  body:not(.theme-preset-active) #page-sub-header p {
+  color: #212529;
+  }
+  a.page-scroller {
+	color: #333;
+	font-size: 2.6rem;
+	display: inline-block;
+	margin-top: 2rem;
+  }
+  
+  @media screen and (min-width: 768px) {
+	body:not(.theme-preset-active) #page-sub-header h1 {
+	  font-size: 3.750rem;
+	}
+	body:not(.theme-preset-active) #page-sub-header {
+	  font-size: 1.25rem;
+	}
+  }
+  @media screen and (min-width: 992px) {
+	#page-sub-header p {
+	  max-width: 43rem;
+	  margin: 0 auto;
+	}
+  }
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
@@ -352,7 +404,8 @@ a:hover, a:active {
 }
 
 .top, .top:link {
-	color: #333;
+	color: #fff;
+	background: #333;
 	position: fixed;
 	z-index: 999;
 	bottom: 20px;
@@ -369,6 +422,10 @@ a:hover, a:active {
 
 }
 
+.top:hover {
+	opacity:1;
+	text-decoration: none;
+}
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -476,6 +533,15 @@ a:hover, a:active {
 	max-width: 100%;
 }
 
+/* Tag Cloud */
+.tagcloud a {
+	border: 1px solid;
+	border-radius: 2px;
+	display: inline-block;
+	line-height: 1;
+	margin: 0 2px 5px 0;
+	padding: 5px;
+}
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -506,6 +572,7 @@ a:hover, a:active {
 	margin: 0 0 1.5em;
 }
 
+	
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
